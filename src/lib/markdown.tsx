@@ -1,10 +1,16 @@
 import React from "react";
 
+import { AppMarkdownTable } from "@/components/libresplit/AppMarkdownTable";
 import { fromMarkdown } from "mdast-util-from-markdown";
+import { gfmFromMarkdown } from "mdast-util-gfm";
+import { gfm } from "micromark-extension-gfm";
 import { CodeBlock } from "react-code-block";
 
 export function Markdown({ content }: { content: string }) {
-  const tree = fromMarkdown(content);
+  const tree = fromMarkdown(content, {
+    extensions: [gfm()],
+    mdastExtensions: [gfmFromMarkdown()],
+  });
 
   function renderChildren(node: any): React.ReactNode | null {
     if (!node.children) {
@@ -78,6 +84,19 @@ export function Markdown({ content }: { content: string }) {
       case "listItem": {
         return <li>{renderChildren(node)}</li>;
       }
+
+      // Handles tables.
+      case "table":
+        return (
+          <AppMarkdownTable
+            node={node}
+            renderChildren={(n) =>
+              n?.children?.map((c: any, i: number) => (
+                <React.Fragment key={i}>{renderNode(c)}</React.Fragment>
+              ))
+            }
+          />
+        );
 
       // Handles code blocks.
       case "code":
