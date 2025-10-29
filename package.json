@@ -2,7 +2,7 @@
   "name": "libresplit-website",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://jacktench.github.io/libresplit-website",
+  "homepage": "https://libresplit.org",
   "type": "module",
   "scripts": {
     "format": "prettier . --write",

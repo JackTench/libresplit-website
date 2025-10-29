@@ -5,7 +5,6 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/libresplit-website/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
