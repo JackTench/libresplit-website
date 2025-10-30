@@ -26,7 +26,7 @@ export function AppNav() {
 
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link to="/converter">Converter</Link>
+              <a href="https://converter.libresplit.org/">Converter</a>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
