@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      libresplit-converter: path.resolve(__dirname, "wasm/libresplit-converter/pkg/libresplit-converter.js")
     },
   },
 });

@@ -1,0 +1,3 @@
+[submodule "wasm/LibreSplit-converter"]
+	path = wasm/libresplit-converter
+	url = https://github.com/LibreSplit/LibreSplit-converter
