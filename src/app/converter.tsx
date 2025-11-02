@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import AppFileSelect from "@/components/libresplit/AppFileSelect";
-import { AppMarkdownCodeBlock } from "@/components/libresplit/AppMarkdownCodeBlock";
+import { AppSplitPreview } from "@/components/libresplit/AppSplitPreview";
 import init, { convert } from "@libresplit/libresplit-converter";
 import wasmUrl from "@libresplit/libresplit-converter/libresplit_converter_bg.wasm?url";
 
@@ -54,8 +54,8 @@ export function Converter() {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="px-100">
+    <div className="flex h-[calc(100vh-64px-24px)] flex-col space-y-4 overflow-hidden">
+      <div className="shrink-0 px-[100px]">
         <AppFileSelect
           label="Select LiveSplit file:"
           value={selectedFile}
@@ -65,7 +65,7 @@ export function Converter() {
         />
       </div>
 
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex shrink-0 items-center justify-center gap-2">
         <button
           onClick={handleSubmit}
           className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
@@ -81,9 +81,15 @@ export function Converter() {
         </button>
       </div>
 
-      <div className="flex justify-center">
-        {fileText && <AppMarkdownCodeBlock code={fileText} language="xml" />}
-        {result && <AppMarkdownCodeBlock code={result} language="json" />}
+      <div className="min-h-0 flex-1">
+        <div className="flex h-full min-h-0 w-full items-stretch justify-center gap-4">
+          {fileText && (
+            <AppSplitPreview text={fileText} className="h-full flex-1" />
+          )}
+          {result && (
+            <AppSplitPreview text={result} className="h-full flex-1" />
+          )}
+        </div>
       </div>
     </div>
   );
