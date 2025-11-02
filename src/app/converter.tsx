@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import AppFileSelect from "@/components/libresplit/AppFileSelect";
+import { AppMarkdownCodeBlock } from "@/components/libresplit/AppMarkdownCodeBlock";
 import init, { convert } from "@libresplit/libresplit-converter";
 import wasmUrl from "@libresplit/libresplit-converter/libresplit_converter_bg.wasm?url";
 
@@ -68,6 +69,8 @@ export function Converter() {
           Download Splits
         </button>
       </div>
+
+      {result && <AppMarkdownCodeBlock code={result} language="json" />}
     </div>
   );
 }
