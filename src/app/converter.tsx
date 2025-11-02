@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import init, { convert } from "libresplit-converter";
+import init, { convert } from "@libresplit/libresplit-converter";
 
 export function Converter() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
