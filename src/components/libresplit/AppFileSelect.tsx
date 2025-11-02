@@ -52,7 +52,7 @@ export default function AppFileSelect({
 
   return (
     <div className="space-y-2 px-8">
-      <span className="text-white">{label}</span>
+      <span>{label}</span>
       <div className="flex items-center">
         <Input className="flex-1 rounded-r-none" value={display} readOnly />
         <Button
