@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import init, { convert } from "@libresplit/libresplit-converter";
+import wasmUrl from "@libresplit/libresplit-converter/libresplit_converter_bg.wasm?url";
 
 export function Converter() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -20,7 +21,7 @@ export function Converter() {
     try {
       const text = await selectedFile.text();
 
-      await init();
+      await init(wasmUrl);
 
       const converted = convert(text);
 
