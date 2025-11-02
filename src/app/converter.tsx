@@ -84,10 +84,18 @@ export function Converter() {
       <div className="min-h-0 flex-1">
         <div className="flex h-full min-h-0 w-full items-stretch justify-center gap-4">
           {fileText && (
-            <AppSplitPreview text={fileText} className="h-full flex-1" />
+            <div className="flex min-h-0 flex-1 flex-col">
+              <span className="mb-2 text-center font-semibold">LiveSplit:</span>
+              <AppSplitPreview text={fileText} className="h-full flex-1" />
+            </div>
           )}
           {result && (
-            <AppSplitPreview text={result} className="h-full flex-1" />
+            <div className="flex min-h-0 flex-1 flex-col">
+              <span className="mb-2 text-center font-semibold">
+                LibreSplit:
+              </span>
+              <AppSplitPreview text={result} className="h-full flex-1" />
+            </div>
           )}
         </div>
       </div>
