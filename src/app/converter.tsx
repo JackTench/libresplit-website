@@ -7,10 +7,19 @@ import wasmUrl from "@libresplit/libresplit-converter/libresplit_converter_bg.wa
 
 export function Converter() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileText, setFileText] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
 
-  const handleSelectChange = (files: File | File[] | null) => {
-    setSelectedFile(Array.isArray(files) ? (files[0] ?? null) : files);
+  const handleSelectChange = async (files: File | File[] | null) => {
+    const file = Array.isArray(files) ? (files[0] ?? null) : files;
+    setSelectedFile(file);
+    setResult(null);
+    setFileText(null);
+
+    if (file) {
+      const text = await file.text();
+      setFileText(text);
+    }
   };
 
   const handleSubmit = async () => {
@@ -72,11 +81,10 @@ export function Converter() {
         </button>
       </div>
 
-      {result && (
-        <div className="flex items-center justify-center">
-          <AppMarkdownCodeBlock code={result} language="json" />
-        </div>
-      )}
+      <div className="flex justify-center">
+        {fileText && <AppMarkdownCodeBlock code={fileText} language="xml" />}
+        {result && <AppMarkdownCodeBlock code={result} language="json" />}
+      </div>
     </div>
   );
 }
