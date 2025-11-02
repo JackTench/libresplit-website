@@ -46,15 +46,17 @@ export function Converter() {
 
   return (
     <div className="space-y-4">
-      <AppFileSelect
-        label="Select LiveSplit file:"
-        value={selectedFile}
-        onChange={handleSelectChange}
-        multiple={false}
-        filters={[{ name: "LiveSplit (.lss)", extensions: ["lss", "xml"] }]}
-      />
+      <div className="px-100">
+        <AppFileSelect
+          label="Select LiveSplit file:"
+          value={selectedFile}
+          onChange={handleSelectChange}
+          multiple={false}
+          filters={[{ name: "LiveSplit (.lss)", extensions: ["lss", "xml"] }]}
+        />
+      </div>
 
-      <div className="flex gap-2">
+      <div className="flex items-center justify-center gap-2">
         <button
           onClick={handleSubmit}
           className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
@@ -70,7 +72,11 @@ export function Converter() {
         </button>
       </div>
 
-      {result && <AppMarkdownCodeBlock code={result} language="json" />}
+      {result && (
+        <div className="flex items-center justify-center">
+          <AppMarkdownCodeBlock code={result} language="json" />
+        </div>
+      )}
     </div>
   );
 }
