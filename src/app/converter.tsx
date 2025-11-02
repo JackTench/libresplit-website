@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import AppFileSelect from "@/components/libresplit/AppFileSelect";
 import init, { convert } from "@libresplit/libresplit-converter";
 import wasmUrl from "@libresplit/libresplit-converter/libresplit_converter_bg.wasm?url";
 
@@ -50,7 +51,7 @@ export function Converter() {
 
   return (
     <div>
-      <p>Placeholder</p>
+      <AppFileSelect />
     </div>
   );
 }
