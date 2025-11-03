@@ -1,12 +1,11 @@
-import { Button } from "../ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "../ui/navigation-menu";
+import { AppGitHubButton } from "./AppGitHubButton";
 import { AppThemeToggleButton } from "./AppThemeToggleButton";
-import { Github } from "lucide-react";
 import { Link } from "react-router";
 
 export function AppNav() {
@@ -57,11 +56,7 @@ function LeftNav() {
 function RightNav() {
   return (
     <div className="flex items-center gap-2">
-      <Button>
-        <a href="https://github.com/wins1ey/LibreSplit">
-          <Github />
-        </a>
-      </Button>
+      <AppGitHubButton />
       <AppThemeToggleButton />
     </div>
   );
