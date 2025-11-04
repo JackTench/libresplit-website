@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import AppFileSelect from "@/components/libresplit/AppFileSelect";
 import { AppSplitPreview } from "@/components/libresplit/AppSplitPreview";
-import init, { convert } from "@libresplit/libresplit-converter";
-import wasmUrl from "@libresplit/libresplit-converter/libresplit_converter_bg.wasm?url";
+import init, { convert } from "@libresplit/converter";
+import wasmUrl from "@libresplit/converter/converter_bg.wasm?url";
 
 export function Converter() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
