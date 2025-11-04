@@ -14,6 +14,7 @@ export default defineConfig({
     sitemap({
       hostname: "https://libresplit.org",
       dynamicRoutes: ["/converter"],
+      exclude: ["/404"],
     }),
   ],
   resolve: {
