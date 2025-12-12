@@ -13,7 +13,14 @@ export default defineConfig({
     copyIndexTo404(),
     sitemap({
       hostname: "https://libresplit.org",
-      dynamicRoutes: ["/converter"],
+      dynamicRoutes: [
+        "/converter",
+        "/docs/auto-splitters.md",
+        "/docs/settings-keybinds.md",
+        "/docs/split-files.md",
+        "/docs/themes.md",
+        "/docs/troubleshooting.md",
+      ],
       exclude: ["/404"],
     }),
   ],
