@@ -1,17 +1,19 @@
-import { AutoSplitters } from "./app/auto-splitters";
 import { Converter } from "./app/converter";
+import { Docs } from "./app/docs";
+import { AutoSplitters } from "./app/docs/auto-splitters";
+import { SettingsKeybinds } from "./app/docs/settings-keybinds";
+import { SplitFiles } from "./app/docs/split-files";
+import { Themes } from "./app/docs/themes";
+import { Troubleshooting } from "./app/docs/troubleshooting";
 import { Home } from "./app/home";
 import { NotFound } from "./app/not-found";
-import { SettingsKeybinds } from "./app/settings-keybinds";
-import { SplitFiles } from "./app/split-files";
-import { Themes } from "./app/themes";
-import { Troubleshooting } from "./app/troubleshooting";
 import { Route, Routes } from "react-router";
 
 export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/docs" element={<Docs />} />
       <Route path="/converter" element={<Converter />} />
 
       {/* Documentation pages pulled from GitHub. */}

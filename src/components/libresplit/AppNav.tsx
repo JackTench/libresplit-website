@@ -26,6 +26,12 @@ export function AppNav() {
 
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
+                <Link to="/docs">Docs</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
                 <Link to="/converter">Converter</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
