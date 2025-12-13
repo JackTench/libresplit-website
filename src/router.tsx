@@ -1,4 +1,5 @@
 import { Converter } from "./app/converter";
+import { Docs } from "./app/docs";
 import { AutoSplitters } from "./app/docs/auto-splitters";
 import { SettingsKeybinds } from "./app/docs/settings-keybinds";
 import { SplitFiles } from "./app/docs/split-files";
@@ -12,6 +13,7 @@ export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/docs" element={<Docs />} />
       <Route path="/converter" element={<Converter />} />
 
       {/* Documentation pages pulled from GitHub. */}
