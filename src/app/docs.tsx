@@ -1,3 +1,11 @@
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Link } from "react-router";
+
 const docs = [
   {
     title: "Auto Splitters",
@@ -28,5 +36,22 @@ const docs = [
 ];
 
 export function Docs() {
-  return <p>Placeholder</p>;
+  return (
+    <div className="mx-auto max-w-5xl px-6 py-12">
+      <h1 className="mb-8 text-3xl font-bold">Documentation</h1>
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {docs.map((doc) => (
+          <Link key={doc.to} to={doc.to}>
+            <Card className="h-full transition hover:border-primary hover:shadow-lg">
+              <CardHeader>
+                <CardTitle>{doc.title}</CardTitle>
+                <CardDescription>{doc.description}</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 }
